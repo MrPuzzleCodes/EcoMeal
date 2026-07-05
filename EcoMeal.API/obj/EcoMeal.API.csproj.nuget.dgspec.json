@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Projects\\EcoMeal\\EcoMeal.API\\EcoMeal.API.csproj": {}
+    "D:\\Projects\\EcoMeal\\EcoMeal.API\\EcoMeal.API.csproj": {}
   },
   "projects": {
-    "d:\\Projects\\EcoMeal\\EcoMeal.API\\EcoMeal.API.csproj": {
+    "D:\\Projects\\EcoMeal\\EcoMeal.API\\EcoMeal.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Projects\\EcoMeal\\EcoMeal.API\\EcoMeal.API.csproj",
+        "projectUniqueName": "D:\\Projects\\EcoMeal\\EcoMeal.API\\EcoMeal.API.csproj",
         "projectName": "EcoMeal.API",
-        "projectPath": "d:\\Projects\\EcoMeal\\EcoMeal.API\\EcoMeal.API.csproj",
+        "projectPath": "D:\\Projects\\EcoMeal\\EcoMeal.API\\EcoMeal.API.csproj",
         "packagesPath": "C:\\Users\\Fabian\\.nuget\\packages\\",
-        "outputPath": "d:\\Projects\\EcoMeal\\EcoMeal.API\\obj\\",
+        "outputPath": "D:\\Projects\\EcoMeal\\EcoMeal.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Fabian\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -47,6 +47,20 @@
           "targetAlias": "net10.0",
           "dependencies": {
             "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[10.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[10.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[10.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[10.0.9, )"
             }

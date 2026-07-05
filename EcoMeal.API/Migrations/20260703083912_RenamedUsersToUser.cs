@@ -1,0 +1,76 @@
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
+
+namespace EcoMeal.API.Migrations
+{
+    /// <inheritdoc />
+    public partial class RenamedUsersToUser : Migration
+    {
+        /// <inheritdoc />
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropPrimaryKey(
+                name: "PK_Users",
+                table: "Users");
+
+            migrationBuilder.RenameTable(
+                name: "Users",
+                newName: "User");
+
+            migrationBuilder.AddPrimaryKey(
+                name: "PK_User",
+                table: "User",
+                column: "Id");
+
+            migrationBuilder.CreateTable(
+                name: "BusinessType",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BusinessType", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PackageType",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PackageType", x => x.Id);
+                });
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "BusinessType");
+
+            migrationBuilder.DropTable(
+                name: "PackageType");
+
+            migrationBuilder.DropPrimaryKey(
+                name: "PK_User",
+                table: "User");
+
+            migrationBuilder.RenameTable(
+                name: "User",
+                newName: "Users");
+
+            migrationBuilder.AddPrimaryKey(
+                name: "PK_Users",
+                table: "Users",
+                column: "Id");
+        }
+    }
+}

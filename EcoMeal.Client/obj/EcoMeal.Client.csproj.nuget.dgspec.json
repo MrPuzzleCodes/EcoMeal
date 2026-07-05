@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Projects\\EcoMeal\\EcoMeal.Client\\EcoMeal.Client.csproj": {}
+    "D:\\Projects\\EcoMeal\\EcoMeal.Client\\EcoMeal.Client.csproj": {}
   },
   "projects": {
-    "d:\\Projects\\EcoMeal\\EcoMeal.Client\\EcoMeal.Client.csproj": {
+    "D:\\Projects\\EcoMeal\\EcoMeal.Client\\EcoMeal.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Projects\\EcoMeal\\EcoMeal.Client\\EcoMeal.Client.csproj",
+        "projectUniqueName": "D:\\Projects\\EcoMeal\\EcoMeal.Client\\EcoMeal.Client.csproj",
         "projectName": "EcoMeal.Client",
-        "projectPath": "d:\\Projects\\EcoMeal\\EcoMeal.Client\\EcoMeal.Client.csproj",
+        "projectPath": "D:\\Projects\\EcoMeal\\EcoMeal.Client\\EcoMeal.Client.csproj",
         "packagesPath": "C:\\Users\\Fabian\\.nuget\\packages\\",
-        "outputPath": "d:\\Projects\\EcoMeal\\EcoMeal.Client\\obj\\",
+        "outputPath": "D:\\Projects\\EcoMeal\\EcoMeal.Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Fabian\\AppData\\Roaming\\NuGet\\NuGet.Config"

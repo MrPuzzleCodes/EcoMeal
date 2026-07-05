@@ -83,3 +83,4 @@ d:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\refint\EcoMeal.Client.dll
 d:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\EcoMeal.Client.pdb
 d:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\EcoMeal.Client.genruntimeconfig.cache
 d:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\ref\EcoMeal.Client.dll
+d:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\EcoMeal.Client.sourcelink.json
