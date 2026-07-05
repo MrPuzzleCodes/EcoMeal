@@ -9,5 +9,6 @@ public class BusinessType
     [MaxLength(20)]
     public required string Name { get; set; }
 
+    // Links
     public ICollection<Business> Businesses { get; set; } = new List<Business>();
 }

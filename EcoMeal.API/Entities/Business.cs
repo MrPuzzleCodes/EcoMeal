@@ -16,5 +16,7 @@ public class Business
     [ForeignKey(nameof(BusinessType))]
     public int BusinessTypeId { get; set; }
 
+    // Links
     public required BusinessType BusinessType { get; set; }
+    public ICollection <Package> Packages { get; set; } = new List<Package>();
 }
