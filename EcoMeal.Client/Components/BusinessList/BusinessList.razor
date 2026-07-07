@@ -1,7 +1,13 @@
 @namespace EcoMeal.Client.Components.BusinessList
+@using EcoMeal.Client.Components.BusinessCard
+@using EcoMeal.Client.Models
 
 @if(Businesses is null){
     <p>Loading</p>
+}else if(!Businesses.Any()){
+    <p>No businesses found.</p>
 }else{
-    
+    @foreach (var business in Businesses){
+        <BusinessCard Business="business"/>
+    }
 }
