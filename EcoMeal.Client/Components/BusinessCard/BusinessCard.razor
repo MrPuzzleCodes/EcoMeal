@@ -1,11 +1,12 @@
 @namespace EcoMeal.Client.Components.BusinessCard
 
-<div class="card" style="width: 18rem;">
+<div class="card" style="width: 18rem;" @onclick="NavigateToDetails">
   <div class="card-body">
     <h5 class="card-title">@Business.Name</h5>
     <p class="card-text">@Business.Description</p>
     <p class="card-text">@Business.Address</p>
     <p class="card-text">@Business.Contact</p>
-    <button type="button" class="btn btn-danger" @onclick="DeleteBusiness">Delete</button>
+    <button type="button" class="btn btn-danger" @onclick="DeleteBusiness" @onclick:stopPropagation="true">Delete</button>
+    @* onclick = ondelete *@
   </div>
 </div>

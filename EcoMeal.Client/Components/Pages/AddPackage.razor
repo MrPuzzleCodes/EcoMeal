@@ -1,0 +1,77 @@
+@page "/business/{BusinessId:int}/addPackage"
+@using EcoMeal.Client.Models
+@using EcoMeal.Client.Services
+
+<h2>Adauga pachet</h2>
+
+<EditForm Model = "PackageAddModel" OnValidSubmit="AddPackageToBusiness">
+
+    <DataAnnotationsValidator />
+    @* <ValidationSummary /> *@
+
+    <label class = "form-label"Nume</label>
+    <InputText class="form-control mb-2" 
+            @bind-Value="PackageAddModel.Name" 
+            placeholder="Adauga numele pachetului"></InputText>
+    <ValidationMessage For="@(() => PackageAddModel.Name)" />
+
+    <label class = "form-label"Nume</label>
+    <InputTextArea class="form-control mb-2" 
+            @bind-Value="PackageAddModel.Description" 
+            placeholder="Descrierea pachetului"></InputTextArea>
+    <ValidationMessage For="@(() => PackageAddModel.Description)" />
+    
+    <label class = "form-label"Nume</label>
+    <InputNumber class="form-control mb-2" 
+            @bind-Value="PackageAddModel.Price" 
+            placeholder="Pretul produsului"></InputNumber>
+    <ValidationMessage For="@(() => PackageAddModel.Price)" />
+
+    <label class = "form-label"Nume</label>
+    <InputDate class="form-control mb-2" 
+            Type="InputDateType.DateTimeLocal"
+            @bind-Value="PackageAddModel.StartPickup" 
+            placeholder="StartPickup"></InputDate>
+    <ValidationMessage For="@(() => PackageAddModel.StartPickup)" />
+    
+    <label class = "form-label"Nume</label>
+    <InputDate class="form-control mb-2" 
+            Type="InputDateType.DateTimeLocal"
+            @bind-Value="PackageAddModel.EndPickup" 
+            placeholder="EndPickup"></InputDate>
+    <ValidationMessage For="@(() => PackageAddModel.EndPickup)" />
+    
+    <label class="form-label">Tip pachet</label>
+    <InputSelect @bind-Value="PackageAddModel.PackageTypeId"
+                 class="form-control mb-2">
+        <option value="0"
+                disabled>Alege tipul...</option>
+        @* 
+        NEW ENDPOINT NEEDED
+        @foreach (var packageType in PackageTypes)
+        {
+            <option value="@packageType.Id">@packageType.Name</option>
+        } *@
+    </InputSelect>
+    <button type="submit" class="btn btn-primary mt-3">Adaugă pachet</button>
+</EditForm>
+
+@code{
+    [Parameter]
+    public int BusinessId { get; set; }
+    [Inject]
+    public required BusinessService BusinessService { get; set; }
+
+    public PackageAddModel PackageAddModel { get; set; } = new PackageAddModel(){
+        Name = string.Empty,
+        Description = string.Empty,
+        Price = 0,
+        StartPickup = DateTime.Now,
+        EndPickup = DateTime.Now.AddHours(2),
+        PackageTypeId = 1
+    };
+
+    public async Task AddPackageToBusiness(){
+        await BusinessService.AddPackageToBusiness(BusinessId,PackageAddModel);
+    }
+}

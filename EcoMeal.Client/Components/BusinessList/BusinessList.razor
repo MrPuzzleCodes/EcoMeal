@@ -8,6 +8,6 @@
     <p>No businesses found.</p>
 }else{
     @foreach (var business in Businesses){
-        <BusinessCard Business="business"/>
+        <BusinessCard Business="business" OnDeleted="RefreshList"/>
     }
 }
