@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using EcoMeal.API.Application.Models;
 using System.Runtime.CompilerServices;
 
-namespace EcoMeal.API.Applications;
+namespace EcoMeal.API.Application.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

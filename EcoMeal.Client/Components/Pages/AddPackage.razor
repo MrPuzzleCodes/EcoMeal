@@ -45,15 +45,23 @@
     <InputSelect @bind-Value="PackageAddModel.PackageTypeId"
                  class="form-control mb-2">
         <option value="0"
-                disabled>Alege tipul...</option>
-        @* 
-        NEW ENDPOINT NEEDED
+                disabled>Alege tipul pachetului</option>
         @foreach (var packageType in PackageTypes)
         {
-            <option value="@packageType.Id">@packageType.Name</option>
-        } *@
+                @if(packageType.Id is not 1){
+                        <option value="@packageType.Id">@packageType.Name</option>
+                }
+        }
+        @* The "other option has to be shown last"*@
+        @foreach (var packageType in PackageTypes)
+        {
+                @if(packageType.Id is 1){
+                        <option value="@packageType.Id">@packageType.Name</option>
+                }
+        }
+
     </InputSelect>
-    <button type="submit" class="btn btn-primary mt-3">Adaugă pachet</button>
+    <button type="submit" class="btn btn-primary mt-3">Adauga Pachet</button>
 </EditForm>
 
 @code{
@@ -61,6 +69,16 @@
     public int BusinessId { get; set; }
     [Inject]
     public required BusinessService BusinessService { get; set; }
+    [Inject]
+    public required PackageTypeService PackageTypeService { get; set; }
+
+    private List<PackageTypeModel>? PackageTypes { get; set; } = new List<PackageTypeModel>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        PackageTypes = await PackageTypeService.GetAllPackageTypes();
+    }
+
 
     public PackageAddModel PackageAddModel { get; set; } = new PackageAddModel(){
         Name = string.Empty,
@@ -68,10 +86,12 @@
         Price = 0,
         StartPickup = DateTime.Now,
         EndPickup = DateTime.Now.AddHours(2),
-        PackageTypeId = 1
+        PackageTypeId = 0
     };
 
     public async Task AddPackageToBusiness(){
         await BusinessService.AddPackageToBusiness(BusinessId,PackageAddModel);
     }
+
+    
 }

@@ -13,6 +13,7 @@ builder.Services.AddHttpClient("EcoMealApi",client =>
 builder.Services.AddScoped(sp => 
     sp.GetRequiredService<IHttpClientFactory>().CreateClient("EcoMealApi"));
 builder.Services.AddScoped<EcoMeal.Client.Services.BusinessService>();
+builder.Services.AddScoped<EcoMeal.Client.Services.PackageTypeService>();
 
 var app = builder.Build();
 
