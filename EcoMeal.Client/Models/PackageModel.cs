@@ -15,7 +15,7 @@ public class PackageModel
     
     public string? Description { get; set; }
     public required double Price { get; set; }
-    public required DateTime StartPickup { get; set;}
+    public required DateTime StartPickup { get; set; }
     public required DateTime EndPickup { get; set; }
 
     public string? PackageTypeName { get; set; }

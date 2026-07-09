@@ -3165,11 +3165,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\EcoMeal\\EcoMeal.API\\EcoMeal.API.csproj",
+      "projectUniqueName": "d:\\Projects\\EcoMeal\\EcoMeal.API\\EcoMeal.API.csproj",
       "projectName": "EcoMeal.API",
-      "projectPath": "D:\\Projects\\EcoMeal\\EcoMeal.API\\EcoMeal.API.csproj",
+      "projectPath": "d:\\Projects\\EcoMeal\\EcoMeal.API\\EcoMeal.API.csproj",
       "packagesPath": "C:\\Users\\Fabian\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\EcoMeal\\EcoMeal.API\\obj\\",
+      "outputPath": "d:\\Projects\\EcoMeal\\EcoMeal.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Fabian\\AppData\\Roaming\\NuGet\\NuGet.Config"

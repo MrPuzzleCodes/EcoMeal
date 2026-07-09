@@ -10,4 +10,16 @@ public class PackageService
     {
         _http = http;
     }
+
+    public async Task<PackageModel?> GetPackageById(int id)
+    {
+        var package = await _http.GetFromJsonAsync<PackageModel>($"api/package/{id}");
+        return package;
+    }
+
+    public async Task<bool> UpdatePackage(PackageEditModel package)
+    {
+        var response = await _http.PutAsJsonAsync($"api/package/{package.Id}",package);
+        return response.IsSuccessStatusCode;
+    }
 }

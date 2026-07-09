@@ -1,53 +1,52 @@
-@*
-@page "/business/{BusinessId:int}/addPackage"
+@page "/business/{BusinessId:int}/package/{PackageId:int}/edit"
 @using EcoMeal.Client.Models
 @using EcoMeal.Client.Services
 
-@if(Business == null){
+@if(Package == null){
         <h2>Se incarca...</h2>
         return;
 }
 
 <h2>Editeaza pachetul</h2>
 
-<EditForm Model = "PackageAddModel" OnValidSubmit="UpdatePackage">
+<EditForm Model = "PackageEdit" OnValidSubmit="UpdatePackage">
 
     <DataAnnotationsValidator />
 
     <label class = "form-label"Nume</label>
     <InputText class="form-control mb-2" 
-            @bind-Value="PackageAddModel.Name" 
+            @bind-Value="PackageEdit.Name" 
             placeholder="Adauga numele pachetului"></InputText>
-    <ValidationMessage For="@(() => PackageAddModel.Name)" />
+    <ValidationMessage For="@(() => PackageEdit.Name)" />
 
     <label class = "form-label"Nume</label>
     <InputTextArea class="form-control mb-2" 
-            @bind-Value="PackageAddModel.Description" 
+            @bind-Value="PackageEdit.Description" 
             placeholder="Descrierea pachetului"></InputTextArea>
-    <ValidationMessage For="@(() => PackageAddModel.Description)" />
+    <ValidationMessage For="@(() => PackageEdit.Description)" />
     
     <label class = "form-label"Nume</label>
     <InputNumber class="form-control mb-2" 
-            @bind-Value="PackageAddModel.Price" 
+            @bind-Value="PackageEdit.Price" 
             placeholder="Pretul produsului (RON)"></InputNumber>
-    <ValidationMessage For="@(() => PackageAddModel.Price)" />
+    <ValidationMessage For="@(() => PackageEdit.Price)" />
 
     <label class = "form-label"Nume</label>
     <InputDate class="form-control mb-2" 
             Type="InputDateType.DateTimeLocal"
-            @bind-Value="PackageAddModel.StartPickup" 
+            @bind-Value="PackageEdit.StartPickup" 
             placeholder="StartPickup"></InputDate>
-    <ValidationMessage For="@(() => PackageAddModel.StartPickup)" />
+    <ValidationMessage For="@(() => PackageEdit.StartPickup)" />
     
     <label class = "form-label"Nume</label>
     <InputDate class="form-control mb-2" 
             Type="InputDateType.DateTimeLocal"
-            @bind-Value="PackageAddModel.EndPickup" 
+            @bind-Value="PackageEdit.EndPickup" 
             placeholder="EndPickup"></InputDate>
-    <ValidationMessage For="@(() => PackageAddModel.EndPickup)" />
+    <ValidationMessage For="@(() => PackageEdit.EndPickup)" />
     
     <label class="form-label">Tip pachet</label>
-    <InputSelect @bind-Value="PackageAddModel.PackageTypeId"
+    <InputSelect @bind-Value="PackageEdit.PackageTypeId"
                  class="form-control mb-2">
         <option value="0"
                 disabled>Alege tipul pachetului</option>
@@ -65,13 +64,15 @@
         }
 
     </InputSelect>
-    <button type="submit" class="btn btn-primary mt-3">Adauga Pachet</button>
+    <button type="submit" class="btn btn-primary mt-3">Salveaza schimbari pachet</button>
 </EditForm>
 
 
 @code{
     [Parameter]
     public int BusinessId { get; set; }
+    [Parameter]
+    public int PackageId { get; set; }
     [Inject]
     public required BusinessService BusinessService { get; set; }
     [Inject]
@@ -81,29 +82,31 @@
     [Inject]
     public required NavigationManager NavigationManager { get; set; }
 
-    public BusinessDetailsModel? Business { get; set; } 
-
     private List<PackageTypeModel>? PackageTypes { get; set; } = new List<PackageTypeModel>();
+
+    public required PackageModel Package { get; set; }
+    public required PackageEditModel PackageEdit { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
         PackageTypes = await PackageTypeService.GetAllPackageTypes();
-        Business = await BusinessService.GetOneById(BusinessId);
+        Package = await PackageService.GetPackageById(PackageId);
+        if(Package != null){
+                PackageEdit = new PackageEditModel{
+                        Id = Package.Id,
+                        Name = Package.Name,
+                        Description = Package.Description,
+                        Price = Package.Price,
+                        StartPickup = Package.StartPickup,
+                        EndPickup = Package.EndPickup,
+                        PackageTypeId = Package.PackageTypeId
+                };
+        }
     }
 
 
-    public PackageEditModel PackageEditModel { get; set; } = new PackageAddModel(){
-        Name = string.Empty,
-        Description = string.Empty,
-        Price = 0,
-        StartPickup = DateTime.Now,
-        EndPickup = DateTime.Now.AddHours(2),
-        PackageTypeId = 0
-    };
-
-
     public async Task UpdatePackage(){
-        await PackageService.UpdatePackage(PackageEditModel);
+        await PackageService.UpdatePackage(PackageEdit);
         NavigateToBusinessDetails();
     }
 
@@ -112,5 +115,3 @@
     }
     
 }
-
-*@
