@@ -22,7 +22,6 @@ public partial class BusinessList
 
     private async Task RefreshList()
     {
-        
         Businesses = await BusinessService.GetAllAsync();
         StateHasChanged();
     }

@@ -33,7 +33,7 @@
         <p>Nu exista pachete</p>
     }else{
         @foreach (var package in Business.Packages){
-            <PackageCard Package="package" />
+            <PackageCard Package="package" OnDeleted = "RefreshList"/>
         }
     }
 </div>
@@ -48,14 +48,20 @@
         [Inject]
         public required NavigationManager NavigationManager { get; set; } 
 
-        private BusinessDetailsModel? Business;
+        private BusinessDetailsModel? Business { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
-            Business = await businessService.GetOneById(Id);
+            await RefreshList();
         }
 
         public void NavigateToAddPackage(){
             NavigationManager.NavigateTo($"business/{Id}/addPackage");
+        }
+
+        private async Task RefreshList()
+        {
+            Business = await businessService.GetOneById(Id);
+            StateHasChanged();
         }
 }

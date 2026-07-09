@@ -23,10 +23,6 @@ public partial class BusinessCard
         var success = await BusinessService.DeleteAsync(Business.Id);
         await OnDeleted.InvokeAsync();
         return success;
-
-        // private async task OnDelete()
-        // await delete
-        // await ondeleted.invokeasync(business) ?
     }
 
 

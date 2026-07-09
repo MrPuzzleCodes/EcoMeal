@@ -13,7 +13,19 @@ public partial class PackageCard
     [Inject]
     public required BusinessService BusinessService { get; set; }
     [Inject]
+    public required PackageService PackageService { get; set; }
+    [Inject]
     public required NavigationManager NavigationManager { get; set; }
+
+    [Parameter]
+    public EventCallback OnDeleted { get; set; }
+    
+    public async Task<bool> DeletePackage()
+    {
+        var success = await PackageService.DeletePackage(Package.Id);
+        await OnDeleted.InvokeAsync();
+        return success;
+    }
 
     public void NavigateToEditPackage()
     {

@@ -67,4 +67,18 @@ public class PackageController : ControllerBase
 
         return NoContent();
     }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult> DeletePackage(int id)
+    {
+        var package = await _context.Package.FindAsync(id);
+        if(package is null)
+        {
+            return NotFound();
+        }
+
+        _context.Package.Remove(package);
+        await _context.SaveChangesAsync();
+        return NoContent();
+    }
 }

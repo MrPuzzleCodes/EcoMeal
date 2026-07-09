@@ -22,4 +22,11 @@ public class PackageService
         var response = await _http.PutAsJsonAsync($"api/package/{package.Id}",package);
         return response.IsSuccessStatusCode;
     }
+
+    public async Task<bool> DeletePackage(int id)
+    {
+        var response = await _http.DeleteAsync($"api/package/{id}");
+        return response.IsSuccessStatusCode;
+    }
+
 }

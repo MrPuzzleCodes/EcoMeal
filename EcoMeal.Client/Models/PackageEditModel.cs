@@ -19,5 +19,6 @@ public class PackageEditModel
     [Required]
     public DateTime EndPickup { get; set; }
     [Required]
+    [Range(1,int.MaxValue)]
     public int PackageTypeId { get; set; }
 }
