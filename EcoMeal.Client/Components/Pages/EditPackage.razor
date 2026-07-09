@@ -1,13 +1,18 @@
+@*
 @page "/business/{BusinessId:int}/addPackage"
 @using EcoMeal.Client.Models
 @using EcoMeal.Client.Services
 
-<h2>Adauga pachet</h2>
+@if(Business == null){
+        <h2>Se incarca...</h2>
+        return;
+}
 
-<EditForm Model = "PackageAddModel" OnValidSubmit="AddPackageToBusiness">
+<h2>Editeaza pachetul</h2>
+
+<EditForm Model = "PackageAddModel" OnValidSubmit="UpdatePackage">
 
     <DataAnnotationsValidator />
-    @* <ValidationSummary /> *@
 
     <label class = "form-label"Nume</label>
     <InputText class="form-control mb-2" 
@@ -52,7 +57,6 @@
                         <option value="@packageType.Id">@packageType.Name</option>
                 }
         }
-        @* The "other option has to be shown last"*@
         @foreach (var packageType in PackageTypes)
         {
                 @if(packageType.Id is 1){
@@ -71,6 +75,8 @@
     [Inject]
     public required BusinessService BusinessService { get; set; }
     [Inject]
+    public required PackageService PackageService { get; set; }
+[Inject]
     public required PackageTypeService PackageTypeService { get; set; }
     [Inject]
     public required NavigationManager NavigationManager { get; set; }
@@ -86,7 +92,7 @@
     }
 
 
-    public PackageAddModel PackageAddModel { get; set; } = new PackageAddModel(){
+    public PackageEditModel PackageEditModel { get; set; } = new PackageAddModel(){
         Name = string.Empty,
         Description = string.Empty,
         Price = 0,
@@ -96,8 +102,8 @@
     };
 
 
-    public async Task AddPackageToBusiness(){
-        await BusinessService.AddPackageToBusiness(BusinessId,PackageAddModel);
+    public async Task UpdatePackage(){
+        await PackageService.UpdatePackage(PackageEditModel);
         NavigateToBusinessDetails();
     }
 
@@ -106,3 +112,5 @@
     }
     
 }
+
+*@

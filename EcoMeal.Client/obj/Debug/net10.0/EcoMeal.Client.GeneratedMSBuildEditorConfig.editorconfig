@@ -35,6 +35,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xCdXNpbmVzc0xpc3RcQnVzaW5lc3NMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/EcoMeal/EcoMeal.Client/Components/PackageCard/PackageCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWNrYWdlQ2FyZFxQYWNrYWdlQ2FyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/EcoMeal/EcoMeal.Client/Components/Pages/AddPackage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZGRQYWNrYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -45,6 +49,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Projects/EcoMeal/EcoMeal.Client/Components/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/EcoMeal/EcoMeal.Client/Components/Pages/EditPackage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFZGl0UGFja2FnZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/EcoMeal/EcoMeal.Client/Components/Pages/Error.razor]

@@ -1,0 +1,17 @@
+@namespace EcoMeal.Client.Components.PackageCard
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">@Package.Name</h5>
+    <p class="card-text">@Package.Description</p>
+    <p class="card-text">@Package.PackageTypeName</p>
+    <p class="card-text">Pret: @Package.Price RON</p>
+    <button 
+        type="button" class="btn btn-warning" 
+        @onclick="NavigateToEditPackage" 
+        @onclick:stopPropagation="true">
+        
+        Editeaza
+    </button>
+  </div>
+</div>

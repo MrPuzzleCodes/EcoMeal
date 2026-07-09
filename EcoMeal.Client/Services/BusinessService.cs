@@ -32,4 +32,5 @@ public class BusinessService
     {
         await _http.PostAsJsonAsync($"api/business/{businessId}/addPackage", package);
     }
+
 }

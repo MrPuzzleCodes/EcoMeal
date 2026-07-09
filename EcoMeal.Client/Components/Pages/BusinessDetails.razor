@@ -2,9 +2,11 @@
 @using EcoMeal.Client.Models
 @using EcoMeal.Client.Services;
 
-@if(Business is null)
-{
-    return;
+@using EcoMeal.Client.Components.PackageCard
+
+@if(Business == null){
+        <h2>Se incarca...</h2>
+        return;
 }
 
 <div class="container my-4">
@@ -23,6 +25,19 @@
         </button>
     </div>
 </div>
+
+<div>
+    @if(Business.Packages == null){
+        <p>Se incarca..</p>
+    }else if(!Business.Packages.Any()){
+        <p>Nu exista pachete</p>
+    }else{
+        @foreach (var package in Business.Packages){
+            <PackageCard Package="package" />
+        }
+    }
+</div>
+
 
 @code {
         [Parameter]
