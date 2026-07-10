@@ -3,6 +3,7 @@
 @using EcoMeal.Client.Services;
 
 @using EcoMeal.Client.Components.PackageCard
+@using Microsoft.AspNetCore.Components.Authorization
 
 @if(Business == null){
         <h2>Se incarca...</h2>
@@ -19,10 +20,12 @@
 
     <div class="d-flex justify-content-between align-items-center mt-4 mb-3">
         <h2 class="mb-0">Pachete</h2>
-        <button type="button"
+        <AuthorizeView Roles = "Admin">
+            <button type="button"
                 class="btn btn-primary" @onclick="NavigateToAddPackage">
-            + Adaugă pachet
-        </button>
+                 + Adaugă pachet
+            </button>
+        </AuthorizeView>
     </div>
 </div>
 

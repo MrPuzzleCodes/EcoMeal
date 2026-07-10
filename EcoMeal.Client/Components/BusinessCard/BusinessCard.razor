@@ -1,4 +1,5 @@
 @namespace EcoMeal.Client.Components.BusinessCard
+@using Microsoft.AspNetCore.Components.Authorization
 
 
 
@@ -8,12 +9,14 @@
     <p class="card-text">@Business.Description</p>
     <p class="card-text">@Business.Address</p>
     <p class="card-text">@Business.Contact</p>
-    <button type="button" class="btn btn-danger"
+    <AuthorizeView Roles = "Admin">
+      <button type="button" class="btn btn-danger"
         @onclick="DeleteBusiness" 
         @onclick:stopPropagation="true">
           
         Sterge
         
-    </button>
+       </button>
+    </AuthorizeView>
   </div>
 </div>
