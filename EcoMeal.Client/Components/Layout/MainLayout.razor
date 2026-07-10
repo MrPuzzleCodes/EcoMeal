@@ -1,16 +1,27 @@
-﻿@inherits LayoutComponentBase
+@inherits LayoutComponentBase
+@using EcoMeal.Client.Services
+@inject AuthService AuthService
+@inject NavigationManager Navigation
 
 <div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
-
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light px-4 border-bottom">
+            <a class="navbar-brand font-weight-bold" href="/">EcoMeal</a>
+            <div class="ms-auto">
+                @if (AuthService.IsAuthenticated)
+                {
+                    <span class="me-3 text-secondary">Logged In</span>
+                    <button class="btn btn-outline-danger btn-sm" @onclick="HandleLogout">Logout</button>
+                }
+                else
+                {
+                    <a class="btn btn-outline-primary btn-sm" href="/login">Login</a>
+                }
+            </div>
+        </nav>
+    </header>
     <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
+        <article class="content px-4 py-3">
             @Body
         </article>
     </main>
@@ -21,3 +32,20 @@
     <a href="." class="reload">Reload</a>
     <span class="dismiss">🗙</span>
 </div>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await AuthService.LoadTokenAsync();
+            StateHasChanged();
+        }
+    }
+
+    private async Task HandleLogout()
+    {
+        await AuthService.LogoutAsync();
+        Navigation.NavigateTo("/", forceLoad: true);
+    }
+}

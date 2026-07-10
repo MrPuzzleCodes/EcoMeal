@@ -1,5 +1,10 @@
+using EcoMeal.API.Application.Constants;
+using EcoMeal.API.Entities;
 using EcoMeal.API.Infrastructure;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +15,36 @@ builder.Services.AddOpenApi();
 builder.Services.AddDbContext<EcoMealDbContext>(
     options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
+
+
+builder.Services.AddIdentityApiEndpoints<User> (options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireDigit = true;
+    options.Password.RequiredLength = 6;
+})
+.AddRoles<IdentityRole<int>>()
+.AddEntityFrameworkStores<EcoMealDbContext>();
+
+builder.Services.AddAuthorization();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowBlazorSite",
+        policy =>
+        {
+            policy.WithOrigins("https://localhost:7287")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+            /*policy.WithOrigins("https://localhost:7287,http://localhost:5205")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+            */
+        });
+});
 
 builder.Services.AddControllers();
 
@@ -25,8 +60,27 @@ if (app.Environment.IsDevelopment())
     });
 }
 app.MapControllers();
+
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole<int>>>();
+    var roles = new[] { UserRoles.Admin, UserRoles.User };
+    foreach (var role in roles)
+    {
+        if (!await roleManager.RoleExistsAsync(role))
+        {
+            await roleManager.CreateAsync(new IdentityRole<int> { Name = role });
+        }
+    }
+}
+
+
 app.UseHttpsRedirection();
 
+app.UseCors("AllowBlazorSite");
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapIdentityApi<User>();
 
 
 var summaries = new[]

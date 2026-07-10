@@ -1,4 +1,6 @@
 using EcoMeal.Client.Components;
+using EcoMeal.Client.Services;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Mvc.Routing;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,15 +8,25 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddTransient<AuthenticationHeaderHandler>();
 builder.Services.AddHttpClient("EcoMealApi",client =>
 {
     client.BaseAddress = new Uri("https://localhost:7287/");
-});
+}).AddHttpMessageHandler<AuthenticationHeaderHandler>();
+
+
 builder.Services.AddScoped(sp => 
     sp.GetRequiredService<IHttpClientFactory>().CreateClient("EcoMealApi"));
 builder.Services.AddScoped<EcoMeal.Client.Services.BusinessService>();
 builder.Services.AddScoped<EcoMeal.Client.Services.PackageTypeService>();
 builder.Services.AddScoped<EcoMeal.Client.Services.PackageService>();
+
+builder.Services.AddAuthorizationCore();
+
+builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
+
 
 var app = builder.Build();
 
