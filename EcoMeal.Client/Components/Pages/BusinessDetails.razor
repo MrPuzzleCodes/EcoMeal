@@ -2,11 +2,11 @@
 @using EcoMeal.Client.Models
 @using EcoMeal.Client.Services;
 
-@using EcoMeal.Client.Components.PackageCard
+@using EcoMeal.Client.Components.PackageList
 @using Microsoft.AspNetCore.Components.Authorization
 
 @if(Business == null){
-        <h2>Se incarca...</h2>
+        <h2>Loading...</h2>
         return;
 }
 
@@ -14,32 +14,22 @@
     <h1 class="mb-3">@Business.Name</h1>
     <p class="text-muted mb-4">@Business.Description</p>
     <p class="text-muted mb-4"><strong>Contact:</strong> @Business.Contact</p>
-    <p class="text-muted mb-4"><strong>Tip afacere:</strong> @Business.BusinessTypeName</p>
-    <p class="text-muted mb-4"><strong>Adresa:</strong> @Business.Address</p>
+    <p class="text-muted mb-4"><strong>Business Type:</strong> @Business.BusinessTypeName</p>
+    <p class="text-muted mb-4"><strong>Address:</strong> @Business.Address</p>
 
 
     <div class="d-flex justify-content-between align-items-center mt-4 mb-3">
-        <h2 class="mb-0">Pachete</h2>
+        <h2 class="mb-0">Packages:</h2>
         <AuthorizeView Roles = "Admin">
             <button type="button"
                 class="btn btn-primary" @onclick="NavigateToAddPackage">
-                 + Adaugă pachet
+                 + Add Package
             </button>
         </AuthorizeView>
     </div>
 </div>
 
-<div>
-    @if(Business.Packages == null){
-        <p>Se incarca..</p>
-    }else if(!Business.Packages.Any()){
-        <p>Nu exista pachete</p>
-    }else{
-        @foreach (var package in Business.Packages){
-            <PackageCard Package="package" OnDeleted = "RefreshList"/>
-        }
-    }
-</div>
+<PackageList BusinessId="Id" />
 
 
 @code {
@@ -47,24 +37,19 @@
         public int Id { get; set; }
 
         [Inject]
-        public required BusinessService businessService { get; set; }
+        public required BusinessService BusinessService { get; set; }
         [Inject]
         public required NavigationManager NavigationManager { get; set; } 
 
         private BusinessDetailsModel? Business { get; set; }
 
-        protected override async Task OnInitializedAsync()
-        {
-            await RefreshList();
-        }
 
         public void NavigateToAddPackage(){
             NavigationManager.NavigateTo($"business/{Id}/addPackage");
         }
 
-        private async Task RefreshList()
+        protected override async Task OnInitializedAsync()
         {
-            Business = await businessService.GetOneById(Id);
-            StateHasChanged();
+            Business = await BusinessService.GetOneById(Id);
         }
 }

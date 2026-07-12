@@ -44,12 +44,10 @@ main[b-w2zie2umnu] {
     .top-row[b-w2zie2umnu]  a, .top-row[b-w2zie2umnu]  .btn-link {
         margin-left: 0;
     }
+
 }
 
 @media (min-width: 641px) {
-    .page[b-w2zie2umnu] {
-        flex-direction: row;
-    }
 
     .sidebar[b-w2zie2umnu] {
         width: 250px;
@@ -96,3 +94,5 @@ main[b-w2zie2umnu] {
         right: 0.75rem;
         top: 0.5rem;
     }
+
+    

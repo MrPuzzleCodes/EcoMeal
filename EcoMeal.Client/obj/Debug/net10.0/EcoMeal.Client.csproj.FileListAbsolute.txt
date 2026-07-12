@@ -20,7 +20,6 @@ D:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\rjimswa.dswa.cache.json
 D:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
 D:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
 D:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
-D:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
 D:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\scopedcss\Components\Layout\ReconnectModal.razor.rz.scp.css
 D:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\scopedcss\bundle\EcoMeal.Client.styles.css
 D:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\scopedcss\projectbundle\EcoMeal.Client.bundle.scp.css
@@ -72,8 +71,6 @@ D:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\compressed\oqelyx0v50-{0}-0
 D:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\compressed\cxkfjy1kiu-{0}-abdmv1u4y3-abdmv1u4y3.gz
 D:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\compressed\8r9k0aupxs-{0}-ne14ti1q68-ne14ti1q68.gz
 D:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\compressed\woiea6v4gh-{0}-ig5xotzpx5-ig5xotzpx5.gz
-D:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\compressed\jxyms678h9-{0}-wmv43i4az6-wmv43i4az6.gz
-D:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\compressed\v97w0hun2j-{0}-wmv43i4az6-wmv43i4az6.gz
 D:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\staticwebassets.build.json
 D:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\staticwebassets.build.json.cache
 D:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\staticwebassets.development.json
@@ -84,3 +81,8 @@ D:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\refint\EcoMeal.Client.dll
 D:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\EcoMeal.Client.pdb
 D:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\EcoMeal.Client.genruntimeconfig.cache
 D:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\ref\EcoMeal.Client.dll
+d:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
+d:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\scopedcss\Components\BusinessList\BusinessList.razor.rz.scp.css
+d:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\scopedcss\Components\BusinessList\PackageList\PackageList.razor.rz.scp.css
+d:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\compressed\jxyms678h9-{0}-i93mt2l4uq-i93mt2l4uq.gz
+d:\Projects\EcoMeal\EcoMeal.Client\obj\Debug\net10.0\compressed\v97w0hun2j-{0}-i93mt2l4uq-i93mt2l4uq.gz

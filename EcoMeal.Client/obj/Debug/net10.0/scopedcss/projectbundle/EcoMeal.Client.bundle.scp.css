@@ -1,3 +1,67 @@
+/* /Components/BusinessList/BusinessList.razor.rz.scp.css */
+.business-grid[b-xmko6w9tj4] {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    padding: 0 1rem;
+    margin: 0 !important;
+    width: 90%;
+    justify-items: center;
+}
+
+@media (max-width: 1300px) {
+    .business-grid[b-xmko6w9tj4] {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.30rem;
+    }
+}
+
+@media (max-width: 970px) {
+    .business-grid[b-xmko6w9tj4] {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .business-grid[b-xmko6w9tj4] {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0 0.75rem;
+    }
+}
+/* /Components/BusinessList/PackageList/PackageList.razor.rz.scp.css */
+.package-grid[b-m6yyxk2kbn] {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    padding: 0 1rem;
+    margin: 0 !important;
+    width: 90%;
+    justify-items: center;
+}
+
+@media (max-width: 1300px) {
+    .package-grid[b-m6yyxk2kbn] {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.30rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    .package-grid[b-m6yyxk2kbn] {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .package-grid[b-m6yyxk2kbn] {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0 0.75rem;
+    }
+}
 /* /Components/Layout/MainLayout.razor.rz.scp.css */
 .page[b-w2zie2umnu] {
     position: relative;
@@ -45,12 +109,10 @@ main[b-w2zie2umnu] {
     .top-row[b-w2zie2umnu]  a, .top-row[b-w2zie2umnu]  .btn-link {
         margin-left: 0;
     }
+
 }
 
 @media (min-width: 641px) {
-    .page[b-w2zie2umnu] {
-        flex-direction: row;
-    }
 
     .sidebar[b-w2zie2umnu] {
         width: 250px;
@@ -97,6 +159,8 @@ main[b-w2zie2umnu] {
         right: 0.75rem;
         top: 0.5rem;
     }
+
+    
 /* /Components/Layout/NavMenu.razor.rz.scp.css */
 .navbar-toggler[b-964icvhz8d] {
     appearance: none;

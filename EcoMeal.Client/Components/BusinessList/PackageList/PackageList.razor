@@ -1,0 +1,20 @@
+@namespace EcoMeal.Client.Components.PackageList
+@using EcoMeal.Client.Components.PackageCard
+@using EcoMeal.Client.Models
+
+<div class="container my-4">
+
+    @if(Business == null){
+        <p>No Business</p>
+    }else if(Business.Packages == null){
+        <p>Lodaing..</p>
+    }else if(!Business.Packages.Any()){
+        <p>No packages found.</p>
+    }else{
+        <div class="package-grid">
+            @foreach (var package in Business.Packages){
+                <PackageCard Package="package" OnDeleted = "RefreshList"/>
+            }
+        </div>
+    }
+</div>
