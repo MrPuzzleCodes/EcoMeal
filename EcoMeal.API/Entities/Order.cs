@@ -20,6 +20,6 @@ public class Order
 
     // Links
     // public required User User { get; set; }
-    public required Package Package { get; set; }
+    public Package Package { get; set; }
 
 }

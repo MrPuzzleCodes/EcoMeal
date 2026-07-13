@@ -10,6 +10,7 @@
             <div class="ms-auto">
                 @if (AuthService.IsAuthenticated)
                 {
+                    <a class=""btn btn-outside-secondary btn-sm me-2" href="/orders">Orders</a>
                     <span class="me-3 text-secondary">Logged In</span>
                     <button class="btn btn-outline-danger btn-sm" @onclick="HandleLogout">Logout</button>
                 }

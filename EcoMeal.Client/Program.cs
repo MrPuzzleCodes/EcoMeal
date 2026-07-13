@@ -10,10 +10,23 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddTransient<AuthenticationHeaderHandler>();
-builder.Services.AddHttpClient("EcoMealApi",client =>
+
+var apiClientBuilder = builder.Services.AddHttpClient("EcoMealApi", client =>
 {
     client.BaseAddress = new Uri("https://localhost:7287/");
-}).AddHttpMessageHandler<AuthenticationHeaderHandler>();
+});
+
+// In development the backend uses the ASP.NET self-signed dev certificate.
+// Accept it for the server-to-server API calls so the Authorization header is not
+// dropped by an http->https redirect (which strips auth headers on cross-scheme redirects).
+if (builder.Environment.IsDevelopment())
+{
+    apiClientBuilder.ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+    {
+        ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+    });
+}
+
 
 
 builder.Services.AddScoped(sp => 
@@ -21,11 +34,15 @@ builder.Services.AddScoped(sp =>
 builder.Services.AddScoped<EcoMeal.Client.Services.BusinessService>();
 builder.Services.AddScoped<EcoMeal.Client.Services.PackageTypeService>();
 builder.Services.AddScoped<EcoMeal.Client.Services.PackageService>();
+builder.Services.AddScoped<EcoMeal.Client.Services.OrderService>();
 
 builder.Services.AddAuthorizationCore();
 
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
+
+
+
 
 
 var app = builder.Build();

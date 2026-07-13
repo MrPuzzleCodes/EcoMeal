@@ -64,18 +64,20 @@ public class BusinessController : ControllerBase
                 Contact = b.Contact,
                 BusinessTypeName = b.BusinessType.Name,
                 BusinessTypeId = b.BusinessTypeId,
-                Packages = b.Packages.Select(p => new PackageDTO
-                {
-                    Id = p.Id,
-                    Name = p.Name,
-                    BusinessId = p.BusinessId,
-                    PackageTypeId = p.PackageTypeId,
-                    PackageTypeName = p.PackageType.Name,
-                    Description = p.Description,
-                    Price = p.Price,
-                    StartPickup = p.StartPickup,
-                    EndPickup = p.EndPickup
-                }).ToList()
+                Packages = b.Packages
+                    .Where(p => p.Orders.Count == 0)
+                    .Select(p => new PackageDTO
+                    {
+                        Id = p.Id,
+                        Name = p.Name,
+                        BusinessId = p.BusinessId,
+                        PackageTypeId = p.PackageTypeId,
+                        PackageTypeName = p.PackageType.Name,
+                        Description = p.Description,
+                        Price = p.Price,
+                        StartPickup = p.StartPickup,
+                        EndPickup = p.EndPickup
+                    }).ToList()
             })
             .FirstOrDefaultAsync(b => b.Id == id);
         if (business is null)
