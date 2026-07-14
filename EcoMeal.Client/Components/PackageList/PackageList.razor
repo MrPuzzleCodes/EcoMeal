@@ -11,10 +11,12 @@
     }else if(!Business.Packages.Any()){
         <p>No packages found.</p>
     }else{
-        <div class="package-grid">
-            @foreach (var package in Business.Packages){
-                <PackageCard Package="package" OnDeleted = "RefreshList"/>
-            }
+        <div class="container">
+            <div class="row align-items-cente">
+                @foreach (var package in Business.Packages){
+                    <PackageCard Package="package" OnDeleted = "RefreshList"/>
+                }
+            </div>
         </div>
     }
 </div>

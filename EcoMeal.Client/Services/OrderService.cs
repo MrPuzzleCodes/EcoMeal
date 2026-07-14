@@ -1,4 +1,3 @@
-using EcoMeal.Client.Components.Pages.Orders;
 using EcoMeal.Client.Models;
 using System.Net.Http.Headers;
 namespace EcoMeal.Client.Services;

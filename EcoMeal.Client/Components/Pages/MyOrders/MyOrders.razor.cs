@@ -2,19 +2,19 @@ using EcoMeal.Client.Models;
 using EcoMeal.Client.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace EcoMeal.Client.Components.Pages.Orders;
+namespace EcoMeal.Client.Components.Pages.MyOrders;
 
-public partial class Orders
+public partial class MyOrders
 {
     [Inject]
     public required OrderService OrderService { get; set; }
-    private List<OrderGetModel>? MyOrders { get; set; }
+    private List<OrderGetModel>? MyOrdersList { get; set; }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            MyOrders = await OrderService.GetMyOrdersAsync();
+            MyOrdersList = await OrderService.GetMyOrdersAsync();
             StateHasChanged();
         }
         

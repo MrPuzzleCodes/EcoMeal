@@ -1,36 +1,38 @@
 @namespace EcoMeal.Client.Components.PackageCard
 @using Microsoft.AspNetCore.Components.Authorization
 
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">@Package.Name</h5>
-    <p class="card-text">@Package.Description</p>
-    <p class="card-text">@Package.PackageTypeName</p>
-    <p class="card-text">Pret: @Package.Price RON</p>
-    <AuthorizeView Roles = "Admin">
-        <button 
-            type="button" class="btn btn-warning" 
-            @onclick="NavigateToEditPackage" 
-            @onclick:stopPropagation="true">
-            
-            Edit
-        </button>
-        <button type="button" class="btn btn-danger" 
-                @onclick="DeletePackage" 
-                @onclick:stopPropagation="true">
+<div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">@Package.Name</h5>
+      <p class="card-text">@Package.Description</p>
+      <p class="card-text">@Package.PackageTypeName</p>
+      <p class="card-text">Pret: @Package.Price RON</p>
+      <AuthorizeView Roles = "Admin">
+          <button 
+              type="button" class="btn btn-warning" 
+              @onclick="NavigateToEditPackage" 
+              @onclick:stopPropagation="true">
+              
+              Edit
+          </button>
+          <button type="button" class="btn btn-danger" 
+                  @onclick="DeletePackage" 
+                  @onclick:stopPropagation="true">
 
-                Delete
-                
-        </button>
-    </AuthorizeView>
-    <AuthorizeView Roles = "User">
-        <button 
-            type="button" class="btn btn-success" 
-            @onclick="PlaceOrderAsync" 
-            @onclick:stopPropagation="true">
-            
-            Order
-        </button>
-    </AuthorizeView>
+                  Delete
+                  
+          </button>
+      </AuthorizeView>
+      <AuthorizeView Roles = "User">
+          <button 
+              type="button" class="btn btn-success" 
+              @onclick="PlaceOrderAsync" 
+              @onclick:stopPropagation="true">
+              
+              Order
+          </button>
+      </AuthorizeView>
+    </div>
   </div>
 </div>

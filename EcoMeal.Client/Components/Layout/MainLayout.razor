@@ -1,5 +1,6 @@
 @inherits LayoutComponentBase
 @using EcoMeal.Client.Services
+@using Microsoft.AspNetCore.Components.Authorization
 @inject AuthService AuthService
 @inject NavigationManager Navigation
 
@@ -10,7 +11,12 @@
             <div class="ms-auto">
                 @if (AuthService.IsAuthenticated)
                 {
-                    <a class=""btn btn-outside-secondary btn-sm me-2" href="/orders">Orders</a>
+                    <AuthorizeView Roles="Admin">
+                        <a class="btn btn-outside-secondary btn-sm me-2" href="/orders/all">Admin Order Panel</a>
+                    </AuthorizeView>
+                    <AuthorizeView Roles="User">
+                        <a class="btn btn-outside-secondary btn-sm me-2" href="/orders/my">Orders</a>
+                    </AuthorizeView>
                     <span class="me-3 text-secondary">Logged In</span>
                     <button class="btn btn-outline-danger btn-sm" @onclick="HandleLogout">Logout</button>
                 }

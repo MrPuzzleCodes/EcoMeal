@@ -3,20 +3,22 @@
 
 
 
-<div class="card" style="width: 18rem;" @onclick="NavigateToDetails">
-  <div class="card-body">
-    <h5 class="card-title">@Business.Name</h5>
-    <p class="card-text">@Business.Description</p>
-    <p class="card-text">@Business.Address</p>
-    <p class="card-text">@Business.Contact</p>
-    <AuthorizeView Roles = "Admin">
-      <button type="button" class="btn btn-danger"
-        @onclick="DeleteBusiness" 
-        @onclick:stopPropagation="true">
+<div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2">
+  <div class="card" @onclick="NavigateToDetails">
+    <div class="card-body">
+      <h5 class="card-title">@Business.Name</h5>
+      <p class="card-text">@Business.Description</p>
+      <p class="card-text">@Business.Address</p>
+      <p class="card-text">@Business.Contact</p>
+      <AuthorizeView Roles = "Admin">
+        <button type="button" class="btn btn-danger"
+          @onclick="DeleteBusiness" 
+          @onclick:stopPropagation="true">
+            
+          Delete
           
-        Delete
-        
-       </button>
-    </AuthorizeView>
+        </button>
+      </AuthorizeView>
+    </div>
   </div>
 </div>
