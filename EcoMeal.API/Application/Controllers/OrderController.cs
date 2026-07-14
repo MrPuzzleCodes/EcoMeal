@@ -87,6 +87,30 @@ public class OrderController : ControllerBase
 
         return Ok(orders);
     }
+
+    [Authorize(Roles="User")]
+    [HttpGet("all")]
+    public async Task<ActionResult<IEnumerable<OrderGetDTO>>> GetAllOrders()
+    {
+        var userId = GetCurrentUserId();
+
+        var orders = await _context.Order
+        .OrderByDescending(o => o.Date)
+        .Select(o => new OrderGetDTO
+        {
+            Id = o.Id,
+            Date = o.Date,
+            Status = o.Status,
+            Price = o.Package.Price,
+            BusinessId = o.Package.BusinessId,
+            BusinessName = o.Package.Business.Name,
+            PackageName = o.Package.Name
+        })
+        .ToListAsync();
+
+        return Ok(orders);
+    }
+
     private int GetCurrentUserId()
     {
         var userIdValue = User.FindFirstValue(ClaimTypes.NameIdentifier);

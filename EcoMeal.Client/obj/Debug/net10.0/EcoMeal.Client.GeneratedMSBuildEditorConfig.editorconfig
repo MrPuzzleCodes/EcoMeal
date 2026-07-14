@@ -47,6 +47,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZGRQYWNrYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[d:/Projects/EcoMeal/EcoMeal.Client/Components/Pages/AllOrders/AllOrders.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBbGxPcmRlcnNcQWxsT3JkZXJzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [d:/Projects/EcoMeal/EcoMeal.Client/Components/Pages/BusinessDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xCdXNpbmVzc0RldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
