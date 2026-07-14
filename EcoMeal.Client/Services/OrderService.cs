@@ -32,6 +32,8 @@ public class OrderService
 
         var response = await _http.SendAsync(request);
         response.EnsureSuccessStatusCode();
+        /*if (!response.IsSuccessStatusCode)
+            return new List<OrderGetModel>();*/
 
         var orders = await response.Content.ReadFromJsonAsync<List<OrderGetModel>>();
         return orders ?? new List<OrderGetModel>();

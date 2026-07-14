@@ -43,10 +43,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xCdXNpbmVzc0RldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Projects/EcoMeal/EcoMeal.Client/Components/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [d:/Projects/EcoMeal/EcoMeal.Client/Components/Pages/EditPackage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFZGl0UGFja2FnZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -73,10 +69,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [d:/Projects/EcoMeal/EcoMeal.Client/Components/Pages/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWdpc3Rlci5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[d:/Projects/EcoMeal/EcoMeal.Client/Components/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [d:/Projects/EcoMeal/EcoMeal.Client/Components/Routes.razor]

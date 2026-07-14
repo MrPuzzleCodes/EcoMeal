@@ -23,5 +23,14 @@
                 
         </button>
     </AuthorizeView>
+    <AuthorizeView Roles = "User">
+        <button 
+            type="button" class="btn btn-success" 
+            @onclick="PlaceOrderAsync" 
+            @onclick:stopPropagation="true">
+            
+            Order
+        </button>
+    </AuthorizeView>
   </div>
 </div>

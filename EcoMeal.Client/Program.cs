@@ -14,7 +14,7 @@ builder.Services.AddTransient<AuthenticationHeaderHandler>();
 var apiClientBuilder = builder.Services.AddHttpClient("EcoMealApi", client =>
 {
     client.BaseAddress = new Uri("https://localhost:7287/");
-});
+}).AddHttpMessageHandler<AuthenticationHeaderHandler>();
 
 // In development the backend uses the ASP.NET self-signed dev certificate.
 // Accept it for the server-to-server API calls so the Authorization header is not
@@ -28,9 +28,9 @@ if (builder.Environment.IsDevelopment())
 }
 
 
-
 builder.Services.AddScoped(sp => 
     sp.GetRequiredService<IHttpClientFactory>().CreateClient("EcoMealApi"));
+
 builder.Services.AddScoped<EcoMeal.Client.Services.BusinessService>();
 builder.Services.AddScoped<EcoMeal.Client.Services.PackageTypeService>();
 builder.Services.AddScoped<EcoMeal.Client.Services.PackageService>();

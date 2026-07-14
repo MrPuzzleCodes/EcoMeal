@@ -15,7 +15,11 @@ public partial class PackageCard
     [Inject]
     public required PackageService PackageService { get; set; }
     [Inject]
+    public required OrderService OrderService { get; set; }
+
+    [Inject]
     public required NavigationManager NavigationManager { get; set; }
+    
 
     [Parameter]
     public EventCallback OnDeleted { get; set; }
@@ -30,6 +34,13 @@ public partial class PackageCard
     public void NavigateToEditPackage()
     {
         NavigationManager.NavigateTo($"business/{Package.BusinessId}/package/{Package.Id}/edit");
+    }
+
+    public async Task<bool> PlaceOrderAsync()
+    {
+        var success = await OrderService.PlaceOrderAsync(Package.Id);
+        await OnDeleted.InvokeAsync();
+        return success;
     }
 
 }
