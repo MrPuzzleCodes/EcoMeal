@@ -1,5 +1,9 @@
 @page "/orders/all"
 @namespace EcoMeal.Client.Components.Pages.AllOrders
+@using Microsoft.AspNetCore.Components.Authorization
+
+<AuthorizeView Roles="Admin">
+<Authorized>
 
 <PageTitle>All Orders</PageTitle>
 <div class="container">
@@ -41,3 +45,11 @@
         </div>
     }
 </div>
+
+</Authorized>
+
+<NotAuthorized>
+<RedirectToHome />
+</NotAuthorized>
+
+</AuthorizeView>

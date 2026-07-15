@@ -79,6 +79,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xOb3RGb3VuZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[d:/Projects/EcoMeal/EcoMeal.Client/Components/Pages/RedirectToHome.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWRpcmVjdFRvSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Projects/EcoMeal/EcoMeal.Client/Components/Pages/RedirectToLogin.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWRpcmVjdFRvTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [d:/Projects/EcoMeal/EcoMeal.Client/Components/Pages/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWdpc3Rlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
