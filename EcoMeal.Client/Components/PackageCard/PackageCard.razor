@@ -2,8 +2,9 @@
 @using Microsoft.AspNetCore.Components.Authorization
 
 <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2">
-  <div class="card">
+  <div class="card rounded-4 border-success bg-success-emphasis">
     <div class="card-body">
+
       <h5 class="card-title">@Package.Name</h5>
       <p class="card-text">@Package.Description</p>
       <p class="card-text">@Package.PackageTypeName</p>
@@ -34,5 +35,6 @@
           </button>
       </AuthorizeView>
     </div>
+
   </div>
 </div>

@@ -14,8 +14,15 @@ public partial class AllOrders
     {
         if (firstRender)
         {
-            AllOrdersList = await OrderService.GetAllOrdersAsync();
-            StateHasChanged();
+            try
+            {
+                AllOrdersList = await OrderService.GetAllOrdersAsync();
+                StateHasChanged();
+                
+            } catch
+            {
+                
+            }
         }
         
     }

@@ -4,7 +4,9 @@
 
 
 <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2">
-  <div class="card" @onclick="NavigateToDetails">
+  <div class="card rounded-4 border-success bg-success-emphasis"
+    @onclick="NavigateToDetails">
+
     <div class="card-body">
       <h5 class="card-title">@Business.Name</h5>
       <p class="card-text">@Business.Description</p>
@@ -20,5 +22,6 @@
         </button>
       </AuthorizeView>
     </div>
+
   </div>
 </div>

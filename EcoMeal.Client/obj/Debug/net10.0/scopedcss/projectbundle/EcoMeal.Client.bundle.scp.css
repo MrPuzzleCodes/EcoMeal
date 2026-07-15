@@ -1,19 +1,20 @@
 /* /Components/Layout/MainLayout.razor.rz.scp.css */
-.page[b-w2zie2umnu] {
+/*
+.page {
     position: relative;
     display: flex;
     flex-direction: column;
 }
 
-main[b-w2zie2umnu] {
+main {
     flex: 1;
 }
 
-.sidebar[b-w2zie2umnu] {
+.sidebar {
     background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
 }
 
-.top-row[b-w2zie2umnu] {
+.top-row {
     background-color: #f7f7f7;
     border-bottom: 1px solid #d6d5d5;
     justify-content: flex-end;
@@ -22,27 +23,27 @@ main[b-w2zie2umnu] {
     align-items: center;
 }
 
-    .top-row[b-w2zie2umnu]  a, .top-row[b-w2zie2umnu]  .btn-link {
+    .top-row ::deep a, .top-row ::deep .btn-link {
         white-space: nowrap;
         margin-left: 1.5rem;
         text-decoration: none;
     }
 
-    .top-row[b-w2zie2umnu]  a:hover, .top-row[b-w2zie2umnu]  .btn-link:hover {
+    .top-row ::deep a:hover, .top-row ::deep .btn-link:hover {
         text-decoration: underline;
     }
 
-    .top-row[b-w2zie2umnu]  a:first-child {
+    .top-row ::deep a:first-child {
         overflow: hidden;
         text-overflow: ellipsis;
     }
 
 @media (max-width: 640.98px) {
-    .top-row[b-w2zie2umnu] {
+    .top-row {
         justify-content: space-between;
     }
 
-    .top-row[b-w2zie2umnu]  a, .top-row[b-w2zie2umnu]  .btn-link {
+    .top-row ::deep a, .top-row ::deep .btn-link {
         margin-left: 0;
     }
 
@@ -50,32 +51,32 @@ main[b-w2zie2umnu] {
 
 @media (min-width: 641px) {
 
-    .sidebar[b-w2zie2umnu] {
+    .sidebar {
         width: 250px;
         height: 100vh;
         position: sticky;
         top: 0;
     }
 
-    .top-row[b-w2zie2umnu] {
+    .top-row {
         position: sticky;
         top: 0;
         z-index: 1;
     }
 
-    .top-row.auth[b-w2zie2umnu]  a:first-child {
+    .top-row.auth ::deep a:first-child {
         flex: 1;
         text-align: right;
         width: 0;
     }
 
-    .top-row[b-w2zie2umnu], article[b-w2zie2umnu] {
+    .top-row, article {
         padding-left: 2rem !important;
         padding-right: 1.5rem !important;
     }
 }
 
-#blazor-error-ui[b-w2zie2umnu] {
+#blazor-error-ui {
     color-scheme: light only;
     background: lightyellow;
     bottom: 0;
@@ -89,14 +90,14 @@ main[b-w2zie2umnu] {
     z-index: 1000;
 }
 
-    #blazor-error-ui .dismiss[b-w2zie2umnu] {
+    #blazor-error-ui .dismiss {
         cursor: pointer;
         position: absolute;
         right: 0.75rem;
         top: 0.5rem;
     }
 
-    
+*/
 /* /Components/Layout/NavMenu.razor.rz.scp.css */
 .navbar-toggler[b-964icvhz8d] {
     appearance: none;

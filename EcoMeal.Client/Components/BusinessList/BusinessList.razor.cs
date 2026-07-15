@@ -12,12 +12,24 @@ public partial class BusinessList
     public required BusinessService BusinessService { get; set; }
 
 
-    
+
     private List<BusinessModel>? Businesses { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await RefreshList();
+        if (firstRender)
+        {
+            try
+            {
+
+                await RefreshList();
+            }
+            catch
+            {
+                Console.Write("Failed to refresh list");
+            }
+        }
+
     }
 
     private async Task RefreshList()

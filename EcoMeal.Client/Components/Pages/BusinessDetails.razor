@@ -13,22 +13,27 @@
         return;
 }
 
-<div class="container my-4">
-    <h1 class="mb-3">@Business.Name</h1>
-    <p class="text-muted mb-4">@Business.Description</p>
-    <p class="text-muted mb-4"><strong>Contact:</strong> @Business.Contact</p>
-    <p class="text-muted mb-4"><strong>Business Type:</strong> @Business.BusinessTypeName</p>
-    <p class="text-muted mb-4"><strong>Address:</strong> @Business.Address</p>
+<div class="card my-4 rounded-4 border-success">
+    <div class="card-body">
+        <h1 class="mb-3">@Business.Name</h1>
+        <p class="text-muted mb-4">@Business.Description</p>
+        <p class="text-muted mb-4"><strong>Contact:</strong> @Business.Contact</p>
+        <p class="text-muted mb-4"><strong>Business Type:</strong> @Business.BusinessTypeName</p>
+        <p class="text-muted mb-2"><strong>Address:</strong> @Business.Address</p>
+    </div>
+</div>
 
-
-    <div class="d-flex justify-content-between align-items-center mt-4 mb-3">
-        <h2 class="mb-0">Packages:</h2>
-        <AuthorizeView Roles = "Admin">
-            <button type="button"
-                class="btn btn-primary" @onclick="NavigateToAddPackage">
-                 + Add Package
-            </button>
-        </AuthorizeView>
+<div class="card my-4 rounded-4 border-success">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mt-1 mb-1">
+            <h2 class="mb-0">Packages:</h2>
+            <AuthorizeView Roles = "Admin">
+                <button type="button"
+                    class="btn btn-primary" @onclick="NavigateToAddPackage">
+                    + Add Package
+                </button>
+            </AuthorizeView>
+        </div>
     </div>
 </div>
 
