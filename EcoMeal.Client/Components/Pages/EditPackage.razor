@@ -4,77 +4,79 @@
 
 <PageTitle>Edit Package</PageTitle>
 
-@if(Package == null){
-        <h2>Se incarca...</h2>
-        return;
-}
+<div class="container">
+        @if(Package == null){
+                <h2>Se incarca...</h2>
+                return;
+        }
 
-<div class="card my-4 rounded-4 border-success">
-    <div class="card-body">
-        <h2>Edit Package:</h2>
-    </div>
-</div>
+        <div class="card my-4 rounded-4 border-success">
+        <div class="card-body">
+                <h2>Edit Package:</h2>
+        </div>
+        </div>
 
-<div class="card my-4 rounded-4 border-success">
-    <div class="card-body">
-        <EditForm Model = "PackageEdit" OnValidSubmit="UpdatePackage">
+        <div class="card my-4 rounded-4 border-success">
+        <div class="card-body">
+                <EditForm Model = "PackageEdit" OnValidSubmit="UpdatePackage">
 
-                <DataAnnotationsValidator />
+                        <DataAnnotationsValidator />
 
-                <label class = "form-label"Nume</label>
-                <InputText class="form-control mb-2" 
-                        @bind-Value="PackageEdit.Name" 
-                        placeholder="Add Package Name"></InputText>
-                <ValidationMessage For="@(() => PackageEdit.Name)" />
+                        <label class = "form-label"Nume</label>
+                        <InputText class="form-control mb-2" 
+                                @bind-Value="PackageEdit.Name" 
+                                placeholder="Add Package Name"></InputText>
+                        <ValidationMessage For="@(() => PackageEdit.Name)" />
 
-                <label class = "form-label"Nume</label>
-                <InputTextArea class="form-control mb-2" 
-                        @bind-Value="PackageEdit.Description" 
-                        placeholder="Add Package's Description"></InputTextArea>
-                <ValidationMessage For="@(() => PackageEdit.Description)" />
-                
-                <label class = "form-label"Nume</label>
-                <InputNumber class="form-control mb-2" 
-                        @bind-Value="PackageEdit.Price" 
-                        placeholder="Price of the Package (RON)"></InputNumber>
-                <ValidationMessage For="@(() => PackageEdit.Price)" />
+                        <label class = "form-label"Nume</label>
+                        <InputTextArea class="form-control mb-2" 
+                                @bind-Value="PackageEdit.Description" 
+                                placeholder="Add Package's Description"></InputTextArea>
+                        <ValidationMessage For="@(() => PackageEdit.Description)" />
+                        
+                        <label class = "form-label"Nume</label>
+                        <InputNumber class="form-control mb-2" 
+                                @bind-Value="PackageEdit.Price" 
+                                placeholder="Price of the Package (RON)"></InputNumber>
+                        <ValidationMessage For="@(() => PackageEdit.Price)" />
 
-                <label class = "form-label"Nume</label>
-                <InputDate class="form-control mb-2" 
-                        Type="InputDateType.DateTimeLocal"
-                        @bind-Value="PackageEdit.StartPickup" 
-                        placeholder="Add Start Pickup Time"></InputDate>
-                <ValidationMessage For="@(() => PackageEdit.StartPickup)" />
-                
-                <label class = "form-label"Nume</label>
-                <InputDate class="form-control mb-2" 
-                        Type="InputDateType.DateTimeLocal"
-                        @bind-Value="PackageEdit.EndPickup" 
-                        placeholder="Add End Pickup Time"></InputDate>
-                <ValidationMessage For="@(() => PackageEdit.EndPickup)" />
-                
-                <label class="form-label">Tip pachet</label>
-                <InputSelect @bind-Value="PackageEdit.PackageTypeId"
-                                class="form-control mb-2">
-                        <option value="0"
-                                disabled>Add Package Type</option>
-                        @foreach (var packageType in PackageTypes)
-                        {
-                                @if(packageType.Id is not 1){
-                                        <option value="@packageType.Id">@packageType.Name</option>
+                        <label class = "form-label"Nume</label>
+                        <InputDate class="form-control mb-2" 
+                                Type="InputDateType.DateTimeLocal"
+                                @bind-Value="PackageEdit.StartPickup" 
+                                placeholder="Add Start Pickup Time"></InputDate>
+                        <ValidationMessage For="@(() => PackageEdit.StartPickup)" />
+                        
+                        <label class = "form-label"Nume</label>
+                        <InputDate class="form-control mb-2" 
+                                Type="InputDateType.DateTimeLocal"
+                                @bind-Value="PackageEdit.EndPickup" 
+                                placeholder="Add End Pickup Time"></InputDate>
+                        <ValidationMessage For="@(() => PackageEdit.EndPickup)" />
+                        
+                        <label class="form-label">Tip pachet</label>
+                        <InputSelect @bind-Value="PackageEdit.PackageTypeId"
+                                        class="form-control mb-2">
+                                <option value="0"
+                                        disabled>Add Package Type</option>
+                                @foreach (var packageType in PackageTypes)
+                                {
+                                        @if(packageType.Id is not 1){
+                                                <option value="@packageType.Id">@packageType.Name</option>
+                                        }
                                 }
-                        }
-                        @foreach (var packageType in PackageTypes)
-                        {
-                                @if(packageType.Id is 1){
-                                        <option value="@packageType.Id">@packageType.Name</option>
+                                @foreach (var packageType in PackageTypes)
+                                {
+                                        @if(packageType.Id is 1){
+                                                <option value="@packageType.Id">@packageType.Name</option>
+                                        }
                                 }
-                        }
 
-                </InputSelect>
-                <button type="submit" class="btn btn-primary mt-3">Salveaza schimbari pachet</button>
-                </EditForm>
-    </div>
+                        </InputSelect>
+                        <button type="submit" class="btn btn-primary mt-3">Salveaza schimbari pachet</button>
+                        </EditForm>
+                </div>
+        </div>
 </div>
 
 

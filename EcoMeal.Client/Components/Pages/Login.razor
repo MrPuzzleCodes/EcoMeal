@@ -7,43 +7,45 @@
 
 <PageTitle>Login</PageTitle>
 
-<div class="card my-4 rounded-4 border-success">
-    <div class="card-body">
-        <h3>Login:</h3>
+<div class="container">
+    <div class="card my-4 rounded-4 border-success">
+        <div class="card-body">
+            <h3>Login:</h3>
+        </div>
     </div>
-</div>
 
-@if (!string.IsNullOrEmpty(errorMessage))
-{
-    <div class="alert alert-danger">@errorMessage</div>
-}
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="alert alert-danger">@errorMessage</div>
+    }
 
-<div class="card my-4 rounded-4 border-success">
-    <div class="card-body">
-        <EditForm Model="loginModel" OnValidSubmit="HandleLogin" FormName="loginForm">
-            <DataAnnotationsValidator />
+    <div class="card my-4 rounded-4 border-success">
+        <div class="card-body">
+            <EditForm Model="loginModel" OnValidSubmit="HandleLogin" FormName="loginForm">
+                <DataAnnotationsValidator />
 
-            <div class="mb-3">
-                <label class="form-label">Email</label>
-                <InputText class="form-control" @bind-Value="loginModel.Email" />
-                <ValidationMessage For="() => loginModel.Email" />
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <InputText class="form-control" @bind-Value="loginModel.Email" />
+                    <ValidationMessage For="() => loginModel.Email" />
+                </div>
 
-            <div class="mb-3">
-                <label class="form-label">Password</label>
-                <InputText type="password" class="form-control" @bind-Value="loginModel.Password" />
-                <ValidationMessage For="() => loginModel.Password" />
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <InputText type="password" class="form-control" @bind-Value="loginModel.Password" />
+                    <ValidationMessage For="() => loginModel.Password" />
+                </div>
 
-            <button type="submit" class="btn btn-primary">Login</button>
-        </EditForm>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </EditForm>
+        </div>
     </div>
-</div>
 
 
-<div class="card my-4 rounded-4 border-success mp-2">
-    <div class="card-body">
-        <p>Don't have an account? <a href="/register">Register</a></p>
+    <div class="card my-4 rounded-4 border-success mp-2">
+        <div class="card-body">
+            <p>Don't have an account? <a href="/register">Register</a></p>
+        </div>
     </div>
 </div>
 

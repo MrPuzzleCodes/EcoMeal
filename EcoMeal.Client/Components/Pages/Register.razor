@@ -7,54 +7,56 @@
 
 <PageTitle>Register</PageTitle>
 
-<div class="card my-4 rounded-4 border-success">
-    <div class="card-body">
-        <h3>Register:</h3>
+<div class="container">
+    <div class="card my-4 rounded-4 border-success">
+        <div class="card-body">
+            <h3>Register:</h3>
+        </div>
     </div>
-</div>
 
-@if (!string.IsNullOrEmpty(errorMessage))
-{
-    <div class="alert alert-danger">@errorMessage</div>
-}
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="alert alert-danger">@errorMessage</div>
+    }
 
-<div class="card my-4 rounded-4 border-success">
-    <div class="card-body">
-        <EditForm Model="registerModel" OnValidSubmit="HandleRegister" FormName="registerForm">
-            <DataAnnotationsValidator />
+    <div class="card my-4 rounded-4 border-success">
+        <div class="card-body">
+            <EditForm Model="registerModel" OnValidSubmit="HandleRegister" FormName="registerForm">
+                <DataAnnotationsValidator />
 
-            <div class="mb-3">
-                <label class="form-label">Email</label>
-                <InputText class="form-control" @bind-Value="registerModel.Email" />
-                <ValidationMessage For="() => registerModel.Email" />
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <InputText class="form-control" @bind-Value="registerModel.Email" />
+                    <ValidationMessage For="() => registerModel.Email" />
+                </div>
 
-            <div class="mb-3">
-                <label class="form-label">Password</label>
-                <InputText type="password" class="form-control" @bind-Value="registerModel.Password" />
-                <ValidationMessage For="() => registerModel.Password" />
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <InputText type="password" class="form-control" @bind-Value="registerModel.Password" />
+                    <ValidationMessage For="() => registerModel.Password" />
+                </div>
 
-            <div class="mb-3">
-                <label class="form-label">Confirm Password</label>
-                <InputText type="password" class="form-control" @bind-Value="registerModel.ConfirmPassword" />
-                <ValidationMessage For="() => registerModel.ConfirmPassword" />
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Confirm Password</label>
+                    <InputText type="password" class="form-control" @bind-Value="registerModel.ConfirmPassword" />
+                    <ValidationMessage For="() => registerModel.ConfirmPassword" />
+                </div>
 
-            <div class="mb-3">
-                <label class="form-label">Name</label>
-                <InputText class="form-control" @bind-Value="registerModel.Name" />
-                <ValidationMessage For="() => registerModel.Name" />
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <InputText class="form-control" @bind-Value="registerModel.Name" />
+                    <ValidationMessage For="() => registerModel.Name" />
+                </div>
 
-            <div class="mb-3">
-                <label class="form-label">Contact Info</label>
-                <InputText class="form-control" @bind-Value="registerModel.Contact" />
-                <ValidationMessage For="() => registerModel.Contact" />
-            </div>
+                <div class="mb-3">
+                    <label class="form-label">Contact Info</label>
+                    <InputText class="form-control" @bind-Value="registerModel.Contact" />
+                    <ValidationMessage For="() => registerModel.Contact" />
+                </div>
 
-            <button type="submit" class="btn btn-primary">Register</button>
-        </EditForm>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </EditForm>
+        </div>
     </div>
 </div>
 
