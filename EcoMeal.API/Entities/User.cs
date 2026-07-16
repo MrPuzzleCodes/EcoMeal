@@ -8,5 +8,5 @@ public class User : IdentityUser<int>
     public string? Contact { get; set; }
 
     // Links
-    // public ICollection<Order> Orders { get; set; } = new List<Order>();
+    public ICollection<Order> Orders { get; set; } = new List<Order>();
 }

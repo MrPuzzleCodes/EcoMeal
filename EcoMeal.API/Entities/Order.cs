@@ -19,7 +19,7 @@ public class Order
     public required DateTime Date { get; set; }
 
     // Links
-    // public required User User { get; set; }
+    public User User { get; set; }
     public Package Package { get; set; }
 
 }

@@ -49,11 +49,11 @@ public class EcoMealDbContext : IdentityDbContext<User, IdentityRole<int>,int>
             .HasForeignKey(o => o.PackageId);
 
         /// Many Orders have one User (M:1)
-        /* modelbuilder.Entity<Order>()
+        modelbuilder.Entity<Order>()
             .HasOne(o => o.User)
             .WithMany(u => u.Orders)
             .HasForeignKey(o => o.UserId);
-        */
+        
 
     }
 }

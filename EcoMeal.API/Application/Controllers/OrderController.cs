@@ -88,13 +88,13 @@ public class OrderController : ControllerBase
         return Ok(orders);
     }
 
-    [Authorize(Roles="User")]
+    [Authorize(Roles="Admin")]
     [HttpGet("all")]
     public async Task<ActionResult<IEnumerable<OrderGetDTO>>> GetAllOrders()
     {
-        var userId = GetCurrentUserId();
 
         var orders = await _context.Order
+        .Include(o => o.User)
         .OrderByDescending(o => o.Date)
         .Select(o => new OrderGetDTO
         {
@@ -104,6 +104,7 @@ public class OrderController : ControllerBase
             Price = o.Package.Price,
             BusinessId = o.Package.BusinessId,
             BusinessName = o.Package.Business.Name,
+            UserName = o.User.UserName,
             PackageName = o.Package.Name
         })
         .ToListAsync();

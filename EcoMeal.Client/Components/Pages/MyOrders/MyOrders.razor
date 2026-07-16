@@ -2,7 +2,7 @@
 @namespace EcoMeal.Client.Components.Pages.MyOrders
 @using Microsoft.AspNetCore.Components.Authorization
 
-<AuthorizeView Roles="Admin">
+<AuthorizeView Roles="User">
 <Authorized>
 
 <PageTitle>My Orders</PageTitle>
@@ -24,16 +24,23 @@
         <div class="container">
             <div class="row g-3">
                 @foreach(var order in MyOrdersList){
-                    <div class="col-12">
+                    <div class="col-12 col-md-12 col-lg-6 col-xl-6 p-2">
                         <div class="card rounded-4 border-success">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-start">
                                     <h3 class = "card-title mb-1">@order.PackageName</h3>
-                                    <p class="text-muted small">@order.BusinessName</p>
                                     <p class="text-muted small">@order.Date.ToString("dd.MM.yyyy HH:mm")</p>
                                 </div>
+
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <p class="text-muted small">@order.BusinessName</p>
+                                    @if(order.Status == 1){
+                                        <span class="badge rounded=pill bg-success-subtle text-success-emphasis">Completed</span>
+                                    }else{
+                                        <span class="badge rounded=pill bg-danger-subtle text-danger-emphasis">Error</span>
+                                    }
+                                </div>
                                 <div class="text-end">
-                                    <span class="badge rounded=pill bg-success-subtle text-success-emphasis">@order.Status</span>
                                     <div class="fw-semibold">@order.Price RON</div>
                                 </div>
                             </div>
@@ -48,7 +55,7 @@
 </Authorized>
 
 <NotAuthorized>
-<RedirectToHome />
+<RedirectToLogin />
 </NotAuthorized>
 
 </AuthorizeView>
